@@ -55,7 +55,7 @@ function envNum(name: string, fallback: number): number {
 const HALF_LIFE_H = envNum('RF_HL', 6);
 /** Noise scale: latent-strength noise sd = SIGMA0 + SIGMA_RATE * sqrt(horizon h). */
 const SIGMA0 = envNum('RF_SIGMA0', 0.1);
-const SIGMA_RATE = envNum('RF_SIGMA', 0.14);
+const SIGMA_RATE = envNum('RF_SIGMA', 0.11);
 /** Momentum: the regression slope is scaled by this factor, then applied with a
  *  saturating horizon DAMP_TAU_H so a trend cannot run away over 72 hours.
  *  Backtests said momentum is real money (removing it cost ~2 nats), at about
@@ -81,9 +81,9 @@ const JUMP_SCALE = envNum('RF_JUMPS', 2.1);
 /** No game is given more than this at any one place; the practice window's
  *  closing #1 held #1 in none of its reads, so persistence is never priced
  *  anywhere near the baseline's 0.5. */
-const P_CAP = envNum('RF_CAP', 0.22);
+const P_CAP = envNum('RF_CAP', 0.3);
 /** Rows below this probability are dropped (their mass joins the unnamed share). */
-const P_MIN_ROW = 0.0012;
+const P_MIN_ROW = 0.0004;
 /** Monte Carlo draws per horizon bucket. */
 const SIMS = Math.max(50, Math.floor(envNum('RF_SIMS', 900)));
 /** Horizon buckets across the 72-hour window. */
