@@ -55,7 +55,7 @@ function envNum(name: string, fallback: number): number {
 const HALF_LIFE_H = envNum('RF_HL', 6);
 /** Noise scale: latent-strength noise sd = SIGMA0 + SIGMA_RATE * sqrt(horizon h). */
 const SIGMA0 = envNum('RF_SIGMA0', 0.1);
-const SIGMA_RATE = envNum('RF_SIGMA', 0.11);
+const SIGMA_RATE = envNum('RF_SIGMA', 0.14);
 /** Momentum: the regression slope is scaled by this factor, then applied with a
  *  saturating horizon DAMP_TAU_H so a trend cannot run away over 72 hours.
  *  Backtests said momentum is real money (removing it cost ~2 nats), at about
